@@ -2,7 +2,7 @@ const emoji = require("node-emoji");
 const smile = emoji.get("smile");
 const cry = emoji.get("cry");
 
-const eqArrays = function(array1, array2) {
+const isArraysEqual = function(array1, array2) {
   if (array1.length !== array2.length) {
     console.log(`${cry}${cry}${cry}${array1}!==${array2}`);
   } else {
@@ -15,7 +15,7 @@ const eqArrays = function(array1, array2) {
     console.log(`${smile}${smile}${smile}${array1}===${array2}`);
   }
 };
-eqArrays([1, 2, 3], [1, 2, 3]);
-eqArrays([1, 2, 3], [3, 2, 1]);
-eqArrays(["1", "2", "3"], ["1", "2", "3"]);
-eqArrays(["1", "2", "3"], ["1", "2", 3]);
+isArraysEqual([1, 2, 3], [1, 2, 3]);
+isArraysEqual([1, 2, 3], [3, 2, 1]);
+isArraysEqual(["1", "2", "3"], ["1", "2", "3"]);
+isArraysEqual(["1", "2", "3"], ["1", "2", 3]);
