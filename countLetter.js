@@ -2,7 +2,7 @@ const emoji = require("node-emoji");
 const smile = emoji.get("smile");
 const cry = emoji.get("cry");
 
-const assertEqual = function(actual, expected) {
+const assertEqual = function (actual, expected) {
   if (actual !== expected) {
     console.log(
       `${cry}${cry}${cry}Assertion Failed: ${actual} !== ${expected}`
@@ -14,16 +14,16 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const countLetter = function(input) {
+const countLetter = function (input) {
   let result = {};
-  for (let letter of input) {
-    if (letter !== " ") {
-      if (result[letter]) {
-        result[letter] += 1;
-      } else {
-        result[letter] = 1;
-      }
+  for (const letter of input) {
+    if (letter === " ") {
+      continue;
     }
+    if (!result[letter]) {
+      result[letter] = 0;
+    }
+    result[letter]++;
   }
   return result;
 };

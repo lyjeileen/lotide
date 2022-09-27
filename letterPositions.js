@@ -2,7 +2,7 @@ const emoji = require("node-emoji");
 const smile = emoji.get("smile");
 const cry = emoji.get("cry");
 
-const eqArrays = function(array1, array2) {
+const eqArrays = function (array1, array2) {
   if (array1.length !== array2.length) {
     return false;
   }
@@ -13,12 +13,13 @@ const eqArrays = function(array1, array2) {
   }
   return true;
 };
-const assertArraysEqual = function(array1, array2) {
+const assertArraysEqual = function (array1, array2) {
+  const inspect = require("util").inspect;
   eqArrays(array1, array2) === false
-    ? console.log(`${cry}${cry}${cry}${array1}!==${array2}`)
+    ? console.log(`${cry}${cry}${cry}${inspect(array1)}!==${inspect(array2)}`)
     : console.log(`${smile}${smile}${smile}${array1}===${array2}`);
 };
-const letterPositions = function(sentence) {
+const letterPositions = function (sentence) {
   const results = {};
   sentence.split("").forEach((letter, index) => {
     if (letter !== " ") {

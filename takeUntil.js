@@ -21,10 +21,10 @@ const assertArraysEqual = function(array1, array2) {
 const takeUntil = function(array, callback) {
   let result = [];
   for (const element of array) {
-    console.log(callback(element));
-    if (!callback(element)) {
-      result.push(element);
-    } else return result;
+    if (callback(element)) {
+      return result;
+    }
+    result.push(element);
   }
   return result;
 };
